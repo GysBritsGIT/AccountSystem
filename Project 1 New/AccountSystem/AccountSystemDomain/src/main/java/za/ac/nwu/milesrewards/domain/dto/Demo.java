@@ -2,7 +2,7 @@ package za.ac.nwu.milesrewards.domain.dto;
 
 import org.springframework.stereotype.Component;
 
-@component
+@Component
 public class Demo {
 
 }
