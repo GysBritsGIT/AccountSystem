@@ -10,8 +10,8 @@ import java.util.Objects;
 @Setter
 @EqualsAndHashCode
 @ToString
-@AllArgsConstructor
-@NoArgsConstructor
+//@AllArgsConstructor
+//@NoArgsConstructor
 @NonNull
 @Entity
 
