@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import za.ac.nwu.as.domain.service.GeneralResponse;
 
@@ -22,7 +23,7 @@ public class AccountTypeController {
             @ApiResponse(code = 500, message = "Internal server error", response = GeneralResponse.class)})
 
     public ResponseEntity<GeneralResponse<String>> getAll() {
-      GeneralResponse<String> response = new GeneralResponse<>(true, "No types found");
-    return new ResponseEntity<>(response, HttpStatus.OK);
+        GeneralResponse<String> response = new GeneralResponse<>(true, "No types found");
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }
