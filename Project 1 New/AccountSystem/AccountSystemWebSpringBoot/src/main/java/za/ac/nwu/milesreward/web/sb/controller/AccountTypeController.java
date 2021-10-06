@@ -10,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import za.ac.nwu.as.domain.service.GeneralResponse;
+import za.ac.nwu.milesreward.logic.flow.CreateAccountTypeFlow;
+import za.ac.nwu.milesreward.logic.flow.FetchAccountTypeFlow;
 
 @RestController
 @RequestMapping("account-Type")
@@ -22,7 +24,7 @@ public class AccountTypeController {
     public AccountTypeController(FetchAccountTypeFlow fetchAccountTypeFlow,
                                  @Qualifier("createAccountTypeFlowName") CreateAccountTypeFlow createAccountTypeFlow) {
         this.fetchAccountTypeFlow = fetchAccountTypeFlow;
-        this.createAccountTypeFlow = createAccountTypeFlow
+        this.createAccountTypeFlow = createAccountTypeFlow;
     }
 
 
@@ -46,7 +48,7 @@ public class AccountTypeController {
             @ApiResponse(code = 400, message = "Bad Request", response = GeneralResponse.class),
             @ApiResponse(code = 500, message = "Internal server error", response = GeneralResponse.class)})
 
-    public ResponseEntity<GeneralResponse<AccountTypeDto>create(
+    public ResponseEntity<GeneralResponse<AccountTypeDto>>create(
         @ApiParam(value = "Request body to create a new accountType.", required = true)
         @RequestBody AccountTypeDto accountType) {
     AccountTypeDto accountTypeResponse = createAccountTypeFlow.create(accountType);
