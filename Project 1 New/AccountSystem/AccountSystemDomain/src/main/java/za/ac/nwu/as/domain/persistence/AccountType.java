@@ -1,8 +1,7 @@
-package za.ac.nwu.as.domain.service.persistence;
+package za.ac.nwu.as.domain.persistence;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity

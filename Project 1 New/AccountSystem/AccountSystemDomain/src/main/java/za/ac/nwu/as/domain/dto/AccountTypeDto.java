@@ -1,9 +1,7 @@
-package za.ac.nwu.as.domain.service.persistence;
+package za.ac.nwu.as.domain.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import za.ac.nwu.as.domain.service.persistence.AccountType;
 
 import java.io.Serializable;
 

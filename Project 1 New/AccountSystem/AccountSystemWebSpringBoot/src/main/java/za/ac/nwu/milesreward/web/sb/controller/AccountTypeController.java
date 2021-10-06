@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import za.ac.nwu.as.domain.service.GeneralResponse;
+import za.ac.nwu.as.domain.GeneralResponse;
 import za.ac.nwu.milesreward.logic.flow.CreateAccountTypeFlow;
 import za.ac.nwu.milesreward.logic.flow.FetchAccountTypeFlow;
 

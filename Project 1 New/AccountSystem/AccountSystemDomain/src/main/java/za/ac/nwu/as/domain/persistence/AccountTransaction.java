@@ -1,4 +1,4 @@
-package za.ac.nwu.as.domain.service.persistence;
+package za.ac.nwu.as.domain.persistence;
 
 import lombok.*;
 
