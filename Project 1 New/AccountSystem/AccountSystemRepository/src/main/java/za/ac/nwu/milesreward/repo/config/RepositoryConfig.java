@@ -14,4 +14,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @PropertySource(value = "classpath:application-db.properties")
 
 public class RepositoryConfig {
+
+
+
 }
