@@ -1,22 +1,13 @@
-package za.ac.nwu.as.domain.persistence;
-
-import lombok.*;
+package za.ac.nwu.milesreward.domain.persistence;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-//@AllArgsConstructor
-//@NoArgsConstructor
-@NonNull
 @Entity
+@Table(name = "Member", schema = "hr")
 
-
-public class AccountTransaction implements Serializable {
+public class AccountType implements Serializable {
 
     @Id
     @SequenceGenerator(name = "hr_generic_seq", sequenceName = "hr.hr_generic_seq", allocationSize = 1)
@@ -30,33 +21,33 @@ public class AccountTransaction implements Serializable {
     @Column(name = "mem_surname")
     private Long memsurname;
 
-    public AccountTransaction(Long memid, Long memname, Long memsurname) {
+    public AccountType(Long memid, Long memname, Long memsurname) {
         this.memid = memid;
         this.memname = memname;
         this.memsurname = memsurname;
     }
 
-    public AccountTransaction() {
+    public AccountType() {
     }
 
     public Long getMemid() {
         return memid;
     }
 
-    public Long getMemname() {
-        return memname;
-    }
-
-    public Long getMemsurname() {
-        return memsurname;
-    }
-
     public void setMemid(Long memid) {
         this.memid = memid;
     }
 
+    public Long getMemname() {
+        return memname;
+    }
+
     public void setMemname(Long memname) {
         this.memname = memname;
+    }
+
+    public Long getMemsurname() {
+        return memsurname;
     }
 
     public void setMemsurname(Long memsurname) {
@@ -67,7 +58,7 @@ public class AccountTransaction implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        AccountTransaction that = (AccountTransaction) o;
+        AccountType that = (AccountType) o;
         return Objects.equals(memid, that.memid) && Objects.equals(memname, that.memname) && Objects.equals(memsurname, that.memsurname);
     }
 
@@ -76,5 +67,12 @@ public class AccountTransaction implements Serializable {
         return Objects.hash(memid, memname, memsurname);
     }
 
-
+    @Override
+    public String toString() {
+        return "AccountType{" +
+                "memid=" + memid +
+                ", memname=" + memname +
+                ", memsurname=" + memsurname +
+                '}';
+    }
 }

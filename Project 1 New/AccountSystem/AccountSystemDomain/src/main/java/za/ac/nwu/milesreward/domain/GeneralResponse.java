@@ -1,4 +1,4 @@
-package za.ac.nwu.as.domain;
+package za.ac.nwu.milesreward.domain;
 
 import java.io.Serializable;
 import java.util.Objects;

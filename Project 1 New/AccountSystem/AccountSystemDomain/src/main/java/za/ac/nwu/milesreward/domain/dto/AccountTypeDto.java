@@ -1,4 +1,4 @@
-package za.ac.nwu.as.domain.dto;
+package za.ac.nwu.milesreward.domain.dto;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
