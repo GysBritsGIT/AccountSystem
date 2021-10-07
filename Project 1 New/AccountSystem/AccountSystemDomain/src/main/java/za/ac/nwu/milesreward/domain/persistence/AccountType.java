@@ -1,57 +1,78 @@
 package za.ac.nwu.milesreward.domain.persistence;
 
+import za.ac.nwu.milesreward.domain.dto.TransactionDto;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
-@Table(name = "Member", schema = "hr")
+@Table(name = "Account_Type", schema = "hr")
 
 public class AccountType implements Serializable {
 
-    @Id
-    @SequenceGenerator(name = "hr_generic_seq", sequenceName = "hr.hr_generic_seq", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "hr_generic_seq")
-    @Column(name = "MEM_ID")
-    private Long memid;
+    private Long accountTypeId;
+    private String mnemonic;
+    private String accountTypeName;
+    private LocalDate creationDate;
 
-    @Column(name = "Mem_Name")
-    private Long memname;
+    private Set<TransactionDto> transactions;
 
-    @Column(name = "mem_surname")
-    private Long memsurname;
-
-    public AccountType(Long memid, Long memname, Long memsurname) {
-        this.memid = memid;
-        this.memname = memname;
-        this.memsurname = memsurname;
+    public AccountType(Long accountTypeId, String mnemonic, String accountTypeName, LocalDate creationDate) {
+        this.accountTypeId = accountTypeId;
+        this.mnemonic = mnemonic;
+        this.accountTypeName = accountTypeName;
+        this.creationDate = creationDate;
     }
 
     public AccountType() {
+
     }
 
-    public Long getMemid() {
-        return memid;
+    public AccountType(String mnemonic, String accountTypeName, LocalDate creationDate) {
+        this.mnemonic = mnemonic;
+        this.accountTypeName = accountTypeName;
+        this.creationDate = creationDate;
     }
 
-    public void setMemid(Long memid) {
-        this.memid = memid;
+    @Id
+    @Column(name = "Account_Type_Id")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    public Long getAccountTypeId() {
+        return accountTypeId;
     }
 
-    public Long getMemname() {
-        return memname;
+    public void setAccountTypeId(Long accountTypeId) {
+        this.accountTypeId = accountTypeId;
     }
 
-    public void setMemname(Long memname) {
-        this.memname = memname;
+    @Column(name = "Mnemonic")
+    public String getMnemonic() {
+        return mnemonic;
     }
 
-    public Long getMemsurname() {
-        return memsurname;
+    public void setMnemonic(String mnemonic) {
+        this.mnemonic = mnemonic;
     }
 
-    public void setMemsurname(Long memsurname) {
-        this.memsurname = memsurname;
+    @Column(name = "Account_Type_Name")
+    public String getAccountTypeName() {
+        return accountTypeName;
+    }
+
+    public void setAccountTypeName(String accountTypeName) {
+        this.accountTypeName = accountTypeName;
+    }
+
+    @Column(name = "Creation_Date")
+    public LocalDate getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(LocalDate creationDate) {
+        this.creationDate = creationDate;
     }
 
     @Override
@@ -59,20 +80,21 @@ public class AccountType implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         AccountType that = (AccountType) o;
-        return Objects.equals(memid, that.memid) && Objects.equals(memname, that.memname) && Objects.equals(memsurname, that.memsurname);
+        return Objects.equals(accountTypeId, that.accountTypeId) && Objects.equals(mnemonic, that.mnemonic) && Objects.equals(accountTypeName, that.accountTypeName) && Objects.equals(creationDate, that.creationDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(memid, memname, memsurname);
+        return Objects.hash(accountTypeId, mnemonic, accountTypeName, creationDate);
     }
 
     @Override
     public String toString() {
         return "AccountType{" +
-                "memid=" + memid +
-                ", memname=" + memname +
-                ", memsurname=" + memsurname +
+                "accountTypeId=" + accountTypeId +
+                ", mnemonic='" + mnemonic + '\'' +
+                ", accountTypeName='" + accountTypeName + '\'' +
+                ", creationDate=" + creationDate +
                 '}';
     }
 }

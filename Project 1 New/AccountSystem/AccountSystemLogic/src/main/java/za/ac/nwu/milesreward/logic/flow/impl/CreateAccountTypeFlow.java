@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import za.ac.nwu.milesreward.domain.dto.AccountTypeDto;
 import za.ac.nwu.milesreward.logic.flow.CreateAccountTypeFlowInt;
-import za.ac.nwu.milesreward.translator.impl.AccountTypeTranslator;
+import za.ac.nwu.milesreward.translator.impl.AccountTypeTranslatorImpl;
 
 import javax.transaction.Transactional;
 import java.time.LocalDate;
@@ -13,10 +13,10 @@ import java.time.LocalDate;
 @Component("createAccountTypeFlowName")
 public class CreateAccountTypeFlow implements CreateAccountTypeFlowInt {
 
-    public final AccountTypeTranslator accountTypeTranslator;
+    public final AccountTypeTranslatorImpl accountTypeTranslator;
 
     @Autowired
-    public CreateAccountTypeFlow(AccountTypeTranslator accountTypeTranslator) {
+    public CreateAccountTypeFlow(AccountTypeTranslatorImpl accountTypeTranslator) {
         this.accountTypeTranslator = accountTypeTranslator;
     }
 
